@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,11 +18,16 @@ public class BusinessClientListViewModel extends ViewModel {
 	
 	public void init() {
 		List<BusinessClient> fake = new ArrayList<>();
-		BusinessClient client = new BusinessClient("Svet", "Slavkov");
+		BusinessClient client = new BusinessClient(new Date().getTime(), "Svet", "Slavkov");
 		fake.add(client);
 	}
 	
 	public LiveData<List<BusinessClient>> getBusinessClients() {
+		if (businessClients == null) {
+			MutableLiveData<List<BusinessClient>> listMutableLiveData = new MutableLiveData<>();
+			listMutableLiveData.setValue(new ArrayList<>());
+			businessClients = listMutableLiveData;
+		}
 		return businessClients;
 	}
 	
