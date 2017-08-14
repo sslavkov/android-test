@@ -14,7 +14,7 @@ import java.util.List;
 
 public class BusinessClientListViewModel extends ViewModel {
 	
-	private LiveData<List<BusinessClient>> businessClients;
+	private MutableLiveData<List<BusinessClient>> businessClients;
 	
 	public void init() {
 		List<BusinessClient> fake = new ArrayList<>();
@@ -24,19 +24,16 @@ public class BusinessClientListViewModel extends ViewModel {
 	
 	public LiveData<List<BusinessClient>> getBusinessClients() {
 		if (businessClients == null) {
-			MutableLiveData<List<BusinessClient>> listMutableLiveData = new MutableLiveData<>();
-			listMutableLiveData.setValue(new ArrayList<>());
-			businessClients = listMutableLiveData;
+			businessClients = new MutableLiveData<>();
+			businessClients.setValue(new ArrayList<>());
 		}
 		return businessClients;
 	}
 	
 	
 	public void addClient(BusinessClient client) {
-		MutableLiveData<List<BusinessClient>> data = new MutableLiveData<>();
 		List<BusinessClient> value = businessClients.getValue();
 		value.add(client);
-		data.setValue(value);
-		businessClients = data;
+		businessClients.setValue(value);
 	}
 }

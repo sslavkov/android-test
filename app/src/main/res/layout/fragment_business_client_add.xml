@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gostatz.gostatztrainer.activities.BusinessClientListFragment"
-    tools:showIn="@layout/activity_business_clients_list">
+    tools:context="com.gostatz.gostatztrainer.activities.BusinessClientAddActivityFragment"
+    tools:showIn="@layout/activity_business_client_add">
+
 
 </android.support.constraint.ConstraintLayout>

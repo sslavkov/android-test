@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gostatz.gostatztrainer.activities.BusinessClientListActivity">
+    tools:context="com.gostatz.gostatztrainer.activities.BusinessClientAddActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,20 +24,12 @@
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/business_client_list_fragment"
-              android:name="com.gostatz.gostatztrainer.activities.BusinessClientListFragment"
+              android:id="@+id/fragment"
+              android:name="com.gostatz.gostatztrainer.activities.BusinessClientAddActivityFragment"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:layout="@layout/fragment_business_clients_list"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/btn_star_big_on"/>
+              tools:layout="@layout/fragment_business_client_add"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
