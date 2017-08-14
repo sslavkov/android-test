@@ -1,6 +1,7 @@
 package com.gostatz.gostatztrainer.activities;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -25,8 +26,13 @@ public class BusinessClientAddActivity extends AppCompatActivity {
 	
 	private void setUpActionBar() {
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_share);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar == null) {
+            return;
+        }
+        supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_share);
+		supportActionBar.setDisplayHomeAsUpEnabled(true);
+        supportActionBar.setTitle(R.string.client_add);
 	}
 	
 }

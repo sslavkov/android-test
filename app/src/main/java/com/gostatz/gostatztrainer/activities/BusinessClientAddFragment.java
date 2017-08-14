@@ -11,9 +11,9 @@ import com.gostatz.gostatztrainer.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class BusinessClientAddActivityFragment extends Fragment {
+public class BusinessClientAddFragment extends Fragment {
 	
-	public BusinessClientAddActivityFragment() {
+	public BusinessClientAddFragment() {
 	}
 	
 	@Override
