@@ -59,7 +59,7 @@ public class BusinessClientAddActivity extends AppCompatActivity {
         }
         supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_share);
 		supportActionBar.setDisplayHomeAsUpEnabled(true);
-        supportActionBar.setTitle(R.string.client_add);
+        supportActionBar.setTitle(R.string.add_client);
 	}
 	
 }
