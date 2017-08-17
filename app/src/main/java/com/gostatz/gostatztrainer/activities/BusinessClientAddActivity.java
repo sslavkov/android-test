@@ -1,6 +1,7 @@
 package com.gostatz.gostatztrainer.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -43,11 +44,16 @@ public class BusinessClientAddActivity extends AppCompatActivity {
 		
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_save) {
-			Toast.makeText(this, "Saving...", Toast.LENGTH_SHORT).show();
+			save();
 			return true;
 		}
 		
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void save() {
+		Toast.makeText(this, "Saving...", Toast.LENGTH_SHORT).show();
+		NavUtils.navigateUpFromSameTask(this); // navigate UP
 	}
 	
 	
