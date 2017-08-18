@@ -42,10 +42,15 @@ dependencies {
 	compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
 	annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-	// navdrawer
+	// todo - navdrawer
 //	compile('com.mikepenz:materialdrawer:5.9.5@aar') {
 //		transitive = true
 //	}
+
+	// todo - easy themes - https://github.com/garretyoder/Colorful
+	// todo - color palette - https://guides.codepath.com/android/Dynamic-Color-using-Palettes
+	// todo - using the palette and picasso - https://medium.com/david-developer/extracting-colors-from-images-integrating-picasso-and-palette-b9ba45c9c418
+
 
 	// support libraries
 	compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
