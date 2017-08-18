@@ -61,7 +61,7 @@ public class BusinessClientAddActivity extends AppCompatActivity {
 		mCloseIcon.setTint(mColorWhite);
         supportActionBar.setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
 		supportActionBar.setDisplayHomeAsUpEnabled(true);
-        supportActionBar.setTitle(R.string.add_client);
+        supportActionBar.setTitle(R.string.client_add);
 	}
 	
 }
