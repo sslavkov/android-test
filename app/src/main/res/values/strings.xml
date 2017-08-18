@@ -19,6 +19,7 @@
 
     <string name="error_required">Required</string>
     <string name="error_email">Invalid Email</string>
+    <string name="error_name">Must be between 2 and 32 characters</string>
     <string name="error_first_name">Invalid First Name</string>
     <string name="error_last_name">Invalid Last Name</string>
 </resources>
