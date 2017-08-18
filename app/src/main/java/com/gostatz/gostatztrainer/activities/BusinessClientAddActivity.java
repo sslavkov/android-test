@@ -1,22 +1,29 @@
 package com.gostatz.gostatztrainer.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.gostatz.gostatztrainer.R;
-
+import butterknife.BindColor;
+import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.gostatz.gostatztrainer.R;
 
 public class BusinessClientAddActivity extends AppCompatActivity {
 	
 	@BindView(R.id.toolbar)
 	Toolbar toolbar;
-	
+
+	@BindDrawable(R.drawable.ic_close_black_24dp)
+	protected Drawable mCloseIcon;
+
+	@BindColor(R.color.md_white_1000)
+	int mColorWhite;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,7 +57,9 @@ public class BusinessClientAddActivity extends AppCompatActivity {
         if (supportActionBar == null) {
             return;
         }
-        supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_share);
+
+		mCloseIcon.setTint(mColorWhite);
+        supportActionBar.setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
 		supportActionBar.setDisplayHomeAsUpEnabled(true);
         supportActionBar.setTitle(R.string.add_client);
 	}
