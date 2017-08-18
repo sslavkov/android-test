@@ -16,4 +16,9 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="add_client">Add Client</string>
+
+    <string name="error_required">Required</string>
+    <string name="error_email">Invalid Email</string>
+    <string name="error_first_name">Invalid First Name</string>
+    <string name="error_last_name">Invalid Last Name</string>
 </resources>
