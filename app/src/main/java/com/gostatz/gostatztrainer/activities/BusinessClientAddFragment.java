@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.Length;
 
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,6 +32,7 @@ import butterknife.ButterKnife;
 public class BusinessClientAddFragment extends Fragment implements Validator.ValidationListener {
 
 	private Validator validator;
+	private BusinessClientRepository businessClientRepository;
 
 	@BindView(R.id.business_client_first_name)
 	TextInputEditText firstName;
@@ -64,6 +67,7 @@ public class BusinessClientAddFragment extends Fragment implements Validator.Val
 		setHasOptionsMenu(true); // enables to see menu items
 		initValidator();
 		initEventListeners();
+		businessClientRepository = BusinessClientRepository.getInstance(); // TODO - replace with DI
 		
 		return rootView;
 	}
@@ -98,10 +102,20 @@ public class BusinessClientAddFragment extends Fragment implements Validator.Val
 	@Override
 	public void onValidationSucceeded() {
 		Toast.makeText(getActivity(), "Successful validation", Toast.LENGTH_SHORT).show();
+		// create save model here
+		save();
 
-//		NavUtils.navigateUpFromSameTask(getActivity()); // navigate UP - or go elsewhere
+		NavUtils.navigateUpFromSameTask(getActivity()); // navigate UP - or go elsewhere
 	}
+	
+	private void save() {
+//		startActivity(new Intent(BusinessClientListActivity.this, BusinessClientAddActivity.class))
 
+//		private static final String UID_KEY = "uid";
+		BusinessClient businessClient = businessClientRepository.create(new BusinessClient(new Date().getTime(), "Svet", "Slavkov"));
+//		startDetailsActivity() - pass object and add to details activity as parcelable
+	}
+	
 	@Override
 	public void onValidationFailed(List<ValidationError> errors) {
 		for (ValidationError error : errors) {

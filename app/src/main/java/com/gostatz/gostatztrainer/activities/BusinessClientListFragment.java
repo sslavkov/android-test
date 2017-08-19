@@ -27,6 +27,7 @@ public class BusinessClientListFragment extends LifecycleFragment {
 		View fragmentView = inflater.inflate(R.layout.fragment_business_clients_list, container, false);
 		
 		viewModel = ViewModelProviders.of(this).get(BusinessClientListViewModel.class);
+		viewModel.init();
 		
 		return fragmentView;
 	}
@@ -36,7 +37,7 @@ public class BusinessClientListFragment extends LifecycleFragment {
 		super.onActivityCreated(savedInstanceState);
 		viewModel.getBusinessClients().observe(this, clients -> {
 			// update UI
-			Toast.makeText(getActivity(), "Changed!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), "Changed! Client size" + clients.size(), Toast.LENGTH_SHORT).show();
 		});
 	}
 }

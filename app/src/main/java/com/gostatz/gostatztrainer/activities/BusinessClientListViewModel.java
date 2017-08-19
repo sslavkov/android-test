@@ -1,11 +1,8 @@
 package com.gostatz.gostatztrainer.activities;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,26 +11,17 @@ import java.util.List;
 
 public class BusinessClientListViewModel extends ViewModel {
 	
-	private MutableLiveData<List<BusinessClient>> businessClients;
+	private LiveData<List<BusinessClient>> businessClients;
+	private BusinessClientRepository businessClientRepository;
 	
 	public void init() {
-		List<BusinessClient> fake = new ArrayList<>();
-		BusinessClient client = new BusinessClient(new Date().getTime(), "Svet", "Slavkov");
-		fake.add(client);
+		businessClientRepository = BusinessClientRepository.getInstance();
+		businessClients = businessClientRepository.retrieve();
 	}
 	
 	public LiveData<List<BusinessClient>> getBusinessClients() {
-		if (businessClients == null) {
-			businessClients = new MutableLiveData<>();
-			businessClients.setValue(new ArrayList<>());
-		}
+		businessClients = businessClientRepository.retrieve();
 		return businessClients;
 	}
 	
-	
-	public void addClient(BusinessClient client) {
-		List<BusinessClient> value = businessClients.getValue();
-		value.add(client);
-		businessClients.setValue(value);
-	}
 }
