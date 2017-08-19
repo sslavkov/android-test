@@ -1,10 +1,10 @@
 package com.gostatz.gostatztrainer.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NavUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -32,6 +33,8 @@ import butterknife.ButterKnife;
 public class BusinessClientAddFragment extends Fragment implements Validator.ValidationListener {
 
 	private Validator validator;
+	private Unbinder unbinder;
+	
 	private BusinessClientRepository businessClientRepository;
 
 	@BindView(R.id.business_client_first_name)
@@ -62,7 +65,7 @@ public class BusinessClientAddFragment extends Fragment implements Validator.Val
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_business_client_add, container, false);
-		ButterKnife.bind(this, rootView);
+		unbinder = ButterKnife.bind(this, rootView);
 
 		setHasOptionsMenu(true); // enables to see menu items
 		initValidator();
@@ -70,6 +73,12 @@ public class BusinessClientAddFragment extends Fragment implements Validator.Val
 		businessClientRepository = BusinessClientRepository.getInstance(); // TODO - replace with DI
 		
 		return rootView;
+	}
+	
+	@Override
+	public void onDestroyView() {
+		unbinder.unbind();
+		super.onDestroyView();
 	}
 	
 	private void initEventListeners() {
@@ -104,8 +113,8 @@ public class BusinessClientAddFragment extends Fragment implements Validator.Val
 		Toast.makeText(getActivity(), "Successful validation", Toast.LENGTH_SHORT).show();
 		// create save model here
 		save();
-
-		NavUtils.navigateUpFromSameTask(getActivity()); // navigate UP - or go elsewhere
+		startActivity(new Intent(getActivity(), BusinessClientInfoActivity.class));
+//		NavUtils.navigateUpFromSameTask(getActivity()); // navigate UP - or go elsewhere
 	}
 	
 	private void save() {

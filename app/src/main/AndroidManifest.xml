@@ -33,6 +33,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gostatz.gostatztrainer.activities.BusinessClientListActivity"/>
         </activity>
+        <activity
+            android:name=".activities.BusinessClientInfoActivity"
+            android:label="@string/title_activity_business_client_info"
+            android:parentActivityName=".activities.BusinessClientListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gostatz.gostatztrainer.activities.BusinessClientListActivity"/>
+        </activity>
     </application>
 
 </manifest>
