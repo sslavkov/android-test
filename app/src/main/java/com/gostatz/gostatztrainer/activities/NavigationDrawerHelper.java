@@ -33,7 +33,7 @@ public class NavigationDrawerHelper {
 		accountIcon.setTint(resources.getColor(R.color.md_grey_500));
 		AccountHeader headerResult = new AccountHeaderBuilder()
 											 .withActivity(activity)
-											 .withHeaderBackground(R.drawable.side_nav_bar)
+											 .withHeaderBackground(R.color.primary)
 											 .withSelectionListEnabled(false) // disables arrow to click
 											 .addProfiles(
 													 new ProfileDrawerItem()
