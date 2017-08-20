@@ -42,10 +42,10 @@ dependencies {
 	compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
 	annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-	// todo - navdrawer
-//	compile('com.mikepenz:materialdrawer:5.9.5@aar') {
-//		transitive = true
-//	}
+	//	Navigation Drawer Library
+	compile('com.mikepenz:materialdrawer:5.9.5@aar') {
+		transitive = true
+	}
 
 	// todo - easy themes - https://github.com/garretyoder/Colorful
 	// todo - color palette - https://guides.codepath.com/android/Dynamic-Color-using-Palettes
@@ -57,7 +57,7 @@ dependencies {
 	compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 	compile "com.android.support.constraint:constraint-layout:$rootProject.ext.supportLibraryConstraintLayoutVersion"
 
-	// validation
+	// validation library
 	compile "com.mobsandgeeks:android-saripaar:$rootProject.ext.saripaarVersion"
 
 	// android arch components
