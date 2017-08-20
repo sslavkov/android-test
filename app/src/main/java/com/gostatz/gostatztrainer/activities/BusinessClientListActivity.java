@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.gostatz.gostatztrainer.R;
-import com.mikepenz.materialdrawer.Drawer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,8 +32,9 @@ public class BusinessClientListActivity extends AppCompatActivity {
 	}
 	
 	private void setUpNavDrawer() {
-		
-		Drawer drawer = NavigationDrawerHelper.getDefaultDrawerBuilder(this, toolbar).build();
+		NavigationDrawerHelper.getDefaultDrawerBuilder(this, toolbar)
+				.withSelectedItem(NavigationDrawerHelper.ID_CLIENTS)
+				.build();
 	}
 	
 }

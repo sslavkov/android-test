@@ -11,6 +11,8 @@ import com.gostatz.gostatztrainer.R;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
@@ -20,6 +22,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
  */
 
 public class NavigationDrawerHelper {
+	
+	public static final long ID_DASHBOARD = 1;
+	public static final long ID_CLIENTS = 2;
 	
 	public static DrawerBuilder getDefaultDrawerBuilder(Activity activity, Toolbar toolbar) {
 		// Create the AccountHeader
@@ -62,7 +67,21 @@ public class NavigationDrawerHelper {
 	@NonNull
 	private static IDrawerItem[] getDefaultIDrawerItems(Activity activity) {
 		return new IDrawerItem[]{
-					new SecondaryDrawerItem()
+					new PrimaryDrawerItem()
+							.withIdentifier(ID_DASHBOARD)
+							.withOnDrawerItemClickListener((view, position, drawerItem) -> {
+								activity.startActivity(new Intent(activity, MainActivity.class));
+								return false;
+							})
+							.withIcon(R.drawable.ic_dashboard_black_24dp)
+							.withName(R.string.navigation_drawer_dashboard)
+							.withIconTintingEnabled(true),
+					new PrimaryDrawerItem()
+							.withIdentifier(ID_CLIENTS)
+							.withOnDrawerItemClickListener((view, position, drawerItem) -> {
+								activity.startActivity(new Intent(activity, BusinessClientListActivity.class));
+								return false;
+							})
 							.withIcon(R.drawable.ic_group_black_24dp)
 							.withName(R.string.navigation_drawer_clients)
 							.withIconTintingEnabled(true),
@@ -82,13 +101,10 @@ public class NavigationDrawerHelper {
 							.withIcon(R.drawable.ic_add_black_24dp)
 							.withName(R.string.last_name)
 							.withIconTintingEnabled(true),
-					new SecondaryDrawerItem()
-							.withIcon(R.drawable.ic_add_black_24dp)
-							.withName(R.string.last_name)
-							.withIconTintingEnabled(true),
-					new SecondaryDrawerItem()
-							.withIcon(R.drawable.ic_add_black_24dp)
-							.withName(R.string.last_name)
+					new DividerDrawerItem(),
+					new PrimaryDrawerItem()
+							.withIcon(R.drawable.ic_settings_black_24dp)
+							.withName(R.string.navigation_drawer_settings)
 							.withIconTintingEnabled(true)};
 	}
 	
