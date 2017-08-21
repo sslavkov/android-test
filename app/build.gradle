@@ -33,6 +33,12 @@ dependencies {
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
 
+	// dagger DI
+	compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
+	compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion" // if you use the support libraries
+	annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
+	annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+
 	// retrofit
 	compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 	compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"

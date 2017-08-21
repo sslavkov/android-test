@@ -41,6 +41,7 @@ ext {
     saripaarVersion = '2.0.3'
 
 
+    daggerVersion = '2.11'
     gsonVersion = '2.7'
     retrofitVersion = '2.1.0'
     butterknifeVersion = '8.4.0'
